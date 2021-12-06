@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="public/css/todolist.css" />
+  <title>Bảng Công Việc Của Nhân Viên</title>
+</head>
+
+<body>
+  <!-- modal -->
+  <div class="modal" id="todo_form">
+    <div class="header">
+      <div class="title">Thêm Hoạt Động</div>
+      <button class="btn close-modal">&times;</button>
+    </div>
+    <div class="body">
+      <input type="text" id="todo_input" />
+      <input type="submit" value="Add Todo" id="todo_submit" />
+    </div>
+  </div>
+  <!-- todo -->
+  <div class="todo-container">
+    <button onclick="back()">TRỞ VỀ</button>
+    <div class="status" id="no_status">
+      <h1>Công việc</h1>
+      <button id="add_btn" data-target-modal="#todo_form">+ Công Việc</button>
+      <div class="todo" draggable="true">
+        Điểm danh
+        <span class="close">&times;</span>
+      </div>
+      <div class="todo" draggable="true">
+        Báo cáo thu chi
+        <span class="close">&times;</span>
+      </div>
+      <div class="todo" draggable="true">
+        Báo cáo tiến độ
+        <span class="close">&times;</span>
+      </div>
+      <div class="todo" draggable="true">
+        Sắp xếp thiết bị
+        <span class="close">&times;</span>
+      </div>
+    </div>
+    <div class="status">
+      <h1>Chưa làm</h1>
+    </div>
+    <div class="status">
+      <h1>Đang làm</h1>
+    </div>
+    <div class="status">
+      <h1>Đã làm</h1>
+    </div>
+    <button onclick="dangxuat()">ĐĂNG XUẤT</button>
+  </div>
+  <div id="overlay"></div>
+
+  <script>
+    function back() {
+      window.location.href = "/trangchu"
+    }
+    function dangxuat() {
+      window.location.href = "/dangnhap"
+    }
+  </script>
+  <script src="public/js/todolist.js"></script>
+</body>
+
+</html>

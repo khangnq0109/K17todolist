@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="public/css/home.css">
+    <title>Trang chủ</title>
+</head>
+<script src="./public/js/jquery-3.6.0.min.js"></script>
+
+<body>
+
+    <div style="width: 50%; float:left; height: 600px; background-color: lightpink; text-align-last: center">
+        <h1 style="padding-top: 250px" onclick="quanli()">Quản lý</h1>
+    </div>
+
+    <div style="width: 50%; float:right; height: 600px; background-color: lightgreen; text-align-last: center">
+        <h1 style="padding-top: 250px" onclick="nhanvien()">Nhân viên</h1>
+    </div>
+
+
+
+
+</body>
+<script>
+
+    function nhanvien() {
+        window.location.href = "/nhanvien"
+    }
+    function quanli() {
+        window.location.href = "/quanli"
+    }
+
+</script>
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Đăng ký</title>
+    <link rel="stylesheet" type="text/css" href="/public/css/register.css">
+
+</head>
+<script src="./public/js/jquery-3.6.0.min.js"></script>
+
+<body>
+    <div class="main">
+        <input type="checkbox" id="chk" aria-hidden="true">
+
+        <div class="signup">
+            <form id="suform">
+                <label for="chk" aria-hidden="true">ĐĂNG KÝ </label>
+                <input type="text" placeholder="Tài khoản" id="taikhoan">
+                <input type="text" placeholder="Chức vụ" id="vaitro">
+                <input type="password" placeholder="Mật khẩu" id="matkhau">
+                <button type="submit" onclick="dangky()">ĐĂNG KÝ</button>
+            </form>
+        </div>
+
+        <script>
+            function setCookie(cname, cvalue, exdays) {
+                const d = new Date();
+                d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+                let expires = "expires=" + d.toUTCString();
+                document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+            }
+
+            function getCookie(cname) {
+                let name = cname + "=";
+                let ca = document.cookie.split(';');
+                for (let i = 0; i < ca.length; i++) {
+                    let c = ca[i];
+                    while (c.charAt(0) == ' ') {
+                        c = c.substring(1);
+                    }
+                    if (c.indexOf(name) == 0) {
+                        return c.substring(name.length, c.length);
+                    }
+                }
+                return "";
+            }
+
+            function dangky() {
+                $.ajax({
+                    url: '/dangki1',
+                    type: 'POST',
+                    data: {
+                        taikhoan: $('#taikhoan').val(),
+                        vaitro: $('#vaitro').val(),
+                        matkhau: $('#matkhau').val(),
+                    }
+                })
+                    .then(data => {
+                        setCookie('token', data.token, 1)
+                        window.location.href = '/dangnhap'
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    })
+            }
+
+
+        </script>
+
+    </div>
+
+
+</body>
+
+</html>
