@@ -18,10 +18,5 @@ const AccountSchema = new Schema({
 
 const AccountModel = mongoose.model('account', AccountSchema)
 
-aa = AccountModel.create({
-  taikhoan:'khang98',
-  vaitro:'quanli',
-  matkhau:'1'
-})
-console.log(aa)
+
 module.exports = AccountModel
