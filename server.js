@@ -213,7 +213,9 @@ app.post('/dangnhap1', (req, res, next) => {
 })
 //
 
-
+app.get('/', (req, res, next) => {
+  res.sendFile(path.join(__dirname, 'employee.html'))
+})
 app.listen(process.env.PORT ||3000, () => {
   console.log(`Server started on port`)
 });
